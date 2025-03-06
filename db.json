@@ -1,61 +1,34 @@
 {
   "books": [
     {
-      "id": "1",
-      "name": "namenamename",
-      "author": "authorпкуп",
-      "category": "categпукпуory",
-      "isbn": "isbnпкупк",
-      "created": "created",
-      "modified": "--",
+      "id": "f79d",
+      "title": "fwffwefew",
+      "author": "fewfwefefew",
+      "category": "fewfwe",
+      "isbn": "fewfewf",
+      "active": false,
+      "createdAt": "2025-03-06T07:24:51.811Z",
+      "modifiedAt": "2025-03-06T07:28:38.437Z"
+    },
+    {
+      "id": "35bb",
+      "title": "2",
+      "author": "2",
+      "category": "2",
+      "isbn": "2",
       "active": true,
-      "title": "акпк",
-      "modifiedAt": "2025-03-05T19:12:10.481Z"
+      "createdAt": "2025-03-06T07:28:48.373Z",
+      "modifiedAt": "2025-03-06T07:28:50.104Z"
     },
     {
-      "id": 1741201803987,
-      "title": "cacvs",
-      "author": "vdfvdfvdf",
-      "category": "vdfvfdvfd",
-      "isbn": "vfdvfdv",
-      "createdAt": "2025-03-05T19:10:03.987Z",
-      "active": true
-    },
-    {
-      "id": 1741202246319,
-      "title": "grsgrgrg",
-      "author": "tggtgthh",
-      "category": "htrhrhtrhr",
-      "isbn": "325435435",
-      "createdAt": "2025-03-05T19:17:26.319Z",
-      "active": true
-    },
-    {
-      "id": 1741202251117,
-      "title": "bfgbbgb",
-      "author": "bbfbbg",
-      "category": "bbgfbf",
-      "isbn": "fg345353553",
-      "createdAt": "2025-03-05T19:17:31.117Z",
-      "active": true
-    },
-    {
-      "id": 1741202435692,
-      "title": "fwefwfwfew",
-      "author": "fwefewf",
-      "category": "",
-      "isbn": "",
-      "createdAt": "2025-03-05T19:20:35.692Z",
-      "active": true
-    },
-    {
-      "id": 1741202531171,
-      "title": "fewfwef",
-      "author": "fwefwf",
-      "category": "fefwfew",
-      "isbn": "fwfwef",
-      "createdAt": "2025-03-05T19:22:11.171Z",
-      "active": true
+      "id": "0565",
+      "title": "вйу",
+      "author": "вц",
+      "category": "вцй",
+      "isbn": "вйц",
+      "active": true,
+      "createdAt": "2025-03-06T07:33:33.297Z",
+      "modifiedAt": ""
     }
   ]
 }

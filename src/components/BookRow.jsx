@@ -6,7 +6,7 @@ export default function BookRow({ book, onEdit, onToggleActive, onDelete }) {
         <td>{book.category}</td>
         <td>{book.isbn}</td>
         <td>{book.createdAt}</td>
-        <td>{book.modifiedAt || "-"}</td>
+        <td>{book.modifiedAt ? new Date(book.modifiedAt).toLocaleDateString() : "-"}</td>
         <td>
           <button onClick={() => onEdit(book)}>Edit</button>
           <button onClick={() => onToggleActive(book.id)}>

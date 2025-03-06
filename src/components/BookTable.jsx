@@ -1,16 +1,20 @@
 import BookRow from "./BookRow";
 
-export default function BookTable({ books, onEdit, onToggleActive, onDelete }) {
+export default function BookTable({ books, onEdit, onToggleActive, onDelete, }) {
+  if (books.length === 0) {
+    return <p>No books here, add some books</p>;
+  }
+
   return (
     <table>
       <thead>
         <tr>
-          <th>Title</th>
+          <th>Name</th>
           <th>Author</th>
           <th>Category</th>
           <th>ISBN</th>
-          <th>Created At</th>
-          <th>Modified At</th>
+          <th>Created</th>
+          <th>Modified</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -19,7 +23,7 @@ export default function BookTable({ books, onEdit, onToggleActive, onDelete }) {
           <BookRow
             key={book.id}
             book={book}
-            onEdit={onEdit}
+            onEdit={onEdit} 
             onToggleActive={onToggleActive}
             onDelete={onDelete}
           />

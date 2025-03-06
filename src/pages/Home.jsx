@@ -1,45 +1,40 @@
 import { useState, useEffect } from "react";
-import { fetchBooks, addBook, updateBook, deleteBook } from "../components/api";
-import BookForm from "../components/BookForm";
+import { useNavigate } from "react-router-dom";
+import { fetchBooks, toggleActive, deleteBook } from "../components/api";
 import BookTable from "../components/BookTable";
+import Filter from "../components/Filter";
 
 export default function Home() {
   const [books, setBooks] = useState([]);
-  const [editingBook, setEditingBook] = useState(null);
+  const [filter, setFilter] = useState("all");
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchBooks().then(setBooks);
   }, []);
 
-  async function handleSave(book) {
-    if (book.id) {
-      const updated = await updateBook(book.id, { ...book, modifiedAt: new Date().toISOString() });
-      setBooks(books.map((b) => (b.id === book.id ? updated : b)));
-    } else {
-      const newBook = await addBook({ ...book, id: Date.now(), createdAt: new Date().toISOString(), active: true });
-      setBooks([...books, newBook]);
-    }
-    setEditingBook(null);
-  }
-
-  function handleEdit(book) {
-    setEditingBook(book);
-  }
+  // function handleEdit(book) {
+  //   navigate(`/edit-book/${book.id}`, { state: { book } });
+  // }
 
   function handleToggleActive(id) {
-    setBooks(books.map((b) => (b.id === id ? { ...b, active: !b.active } : b)));
+    const book = books.find(b => b.id === id);
+    toggleActive(id, book.active).then(() => fetchBooks().then(setBooks));
   }
 
-  async function handleDelete(id) {
-    await deleteBook(id);
-    setBooks(books.filter((b) => b.id !== id));
+  function handleDelete(id) {
+    deleteBook(id).then(() => fetchBooks().then(setBooks));
   }
+
+  const filteredBooks = books.filter(book =>
+    filter === "all" ? true : filter === "active" ? book.active : !book.active
+  );
 
   return (
     <div>
-      <h1>Book Management</h1>
-      <BookForm onSave={handleSave} editingBook={editingBook} />
-      <BookTable books={books} onEdit={handleEdit} onToggleActive={handleToggleActive} onDelete={handleDelete} />
+      <button onClick={() => navigate("/add-book")}>Add Book</button>
+      <Filter filter={filter} setFilter={setFilter} books={books} />
+      <BookTable books={filteredBooks} onToggleActive={handleToggleActive} onDelete={handleDelete} />
     </div>
   );
 }
